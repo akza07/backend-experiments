@@ -5,6 +5,8 @@ from functools import lru_cache
 class AppConfigs(BaseSettings):
     app_name: str = "My Escrow API"
     database_name: str
+    stripe_publishable_key:str
+    stripe_secret_key:str
 
     model_config = SettingsConfigDict(env_file=".env")
 
