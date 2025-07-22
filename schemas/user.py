@@ -6,7 +6,6 @@ from schemas.response import GenericResponse
 class UserCreate(BaseModel):
     username: EmailStr
     password: str
-    first_name: str
 
 class UserPublic(BaseModel):
     id: int
