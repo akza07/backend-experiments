@@ -11,7 +11,7 @@ This is a sample backend project using FastAPI made with the intention to experi
 
 ## Progress So Far
 - [ ] Authentication
-    - [ ] Basic JWT Authentication
+    - [X] Basic JWT Authentication
     - [ ] 2FA Auth with TOTP
     - [ ] Tokens Rotation
 - [ ] User Management

@@ -1,7 +1,7 @@
-from config import get_config
+from config import ENV
 from sqlmodel import create_engine, SQLModel, Session
 
-SQLITE_FILE_NAME = get_config().database_name
+SQLITE_FILE_NAME = ENV.database_name
 SQLITE_URL = f"sqlite:///{SQLITE_FILE_NAME}"
 
 connect_args = {

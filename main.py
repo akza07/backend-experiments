@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from config import get_config
+from config import ENV
 from database import create_db_and_tables
 from routes import users, auth, system
 from contextlib import asynccontextmanager
@@ -13,7 +13,7 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(
     lifespan=lifespan,
-    title=get_config().app_name,
+    title=ENV.app_name,
     description="Contains sample code and experiments with different libraries",
     version="1.0.0",
 )
@@ -21,7 +21,7 @@ app = FastAPI(
 
 @app.get("/health", tags=["Health"])
 def check_health():
-    app_name: str = get_config().app_name
+    app_name: str = ENV.app_name
     return f"{app_name} is up and running."
 
 

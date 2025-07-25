@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends
 from dependencies import SessionDep, security
-from utils.helpers import get_current_user
+from services.auth_service import get_current_user_by_token
 from schemas.user import UserPublicResponse
 
 router = APIRouter()
@@ -11,9 +11,9 @@ def get_user(
     session: SessionDep,
     token=Depends(security.oauth2_scheme),
 ):
-    user = get_current_user(session, token)
+    user = get_current_user_by_token(session, token)
 
     return {
-        "message": "User Profile fetched",
+        "message": "User Profile Retrieved",
         "data": user,
     }
